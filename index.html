@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <title>Bierliste Ameland</title>
+        <link rel="stylesheet" href="./style.css"/>
+    </head>
+
+    <body>
+        <header>
+            <div>
+                <h1>Bierliste 2024</h1>
+            </div>
+            <div>
+                <img src="./images/Los Buckolos.jpeg" alt="Flagge mit gemalter Bierflasche">
+            </div>
+            <hr/>
+        </header>
+        <div class="Container">
+            <ul id="peopleList"></ul>
+        </div>
+        <footer>
+            <hr/>
+            <p>Copyright Los Buckolos</p>
+        </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sample people data
+            const people = ['Tim', 'Sophie', 'Kim','Nina','Volker','Karin', 'Kurt', 'Basti', 'Moritz', 'Jona', 'Arne'];
+
+            // Get the list element
+            const peopleList = document.getElementById('peopleList');
+
+            // Counter array to store counts
+            const counters = Array(people.length).fill(0);
+
+            // Function to update list and counters
+            const updateList = function() {
+                // Sort people based on counters
+                const sortedPeople = people.slice().sort((a, b) => counters[people.indexOf(b)] - counters[people.indexOf(a)]);
+
+                // Clear the list
+                peopleList.innerHTML = '';
+
+                // Display people with counters and buttons
+                sortedPeople.forEach((person, index) => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `${person} <button class="increment" onclick="incrementCounter(${people.indexOf(person)})">+</button> <button class="decrement" onclick="decrementCounter(${people.indexOf(person)})">-</button> <span class="counter" id="counter${people.indexOf(person)}">${counters[people.indexOf(person)]}</span>`;
+                    peopleList.appendChild(listItem);
+                });
+            };
+
+            // Function to increment counter
+            window.incrementCounter = function(index) {
+                counters[index]++;
+                updateList();
+            };
+
+            // Function to decrement counter
+            window.decrementCounter = function(index) {
+                if (counters[index] > 0) {
+                    counters[index]--;
+                    updateList();
+                }
+            };
+
+            // Initialize the list
+            updateList();
+        });
+    </script>
+    </body>
+</html>
+
+
