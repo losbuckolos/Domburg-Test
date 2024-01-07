@@ -1,23 +1,17 @@
 html{
-    background-color: goldenrod;
     font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
 }
 
 header {
     display: block;
-    color: white;
+    color: #008200;
     text-transform: uppercase;
-    text-align: center;
 }
 
 header img{
     border: 2px solid white;
     width: 200px;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
 }
 
 ul {
@@ -30,40 +24,134 @@ li {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+    font-size: 30pt; 
 }
 
+.name{
+    border-style: solid;
+    border-color: var(--gray-200, #eaecf0);
+    border-width: 0px 0px 1px 0px;
+    padding: 16px 24px 16px 24px;
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    align-items: center;
+    justify-content: flex-start;
+    height: 64px;
+    width: 100%;
+}
+
+.text {
+    color: var(--gray-900, #101828);
+    text-align: left;
+    font-family: var(--textsm-bold-font-family, "Inter-Bold", sans-serif);
+    font-size: var(--textsm-bold-font-size, 100%);
+    line-height: var(--textsm-bold-line-height, 20px);
+    font-weight: var(--textsm-bold-font-weight, 700);
+    position: relative;
+    }
 
 .counter {
-    display: inline-block;
-    padding: 5px 10px;
-    background-color: #f2f2f2;
-    border-radius: 5px;
+    border-style: solid;
+    border-color: var(--gray-200, #eaecf0);
+    border-width: 0px 0px 0px 0px;
+    padding: 16px 24px 16px 24px;
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    align-items: center;
+    justify-content: flex-start;
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    margin-left: 45%;
+    color: var(--gray-900, #101828);
+    text-align: center;
+    font-family: var(--textsm-medium-font-family, "Inter-Medium", sans-serif);
+    font-size: var(--textsm-medium-font-size, 100%);
+    line-height: var(--textsm-medium-line-height, 20px);
+    font-weight: var(--textsm-medium-font-weight, 300);
 }
 
-button {
-    margin-left: 10px;
-    
+.increase-decrease {
+    border-radius: 8px;
+    border-style: solid;
+    border-color: var(--gray-300, #d0d5dd);
+    border-width: 1px;
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 20%;
+    box-shadow: var(
+      --shadow-xs-box-shadow,
+      0px 1px 2px 0px rgba(16, 24, 40, 0.05)
+    );
+    overflow: hidden;
+    position: absolute;
+    margin-left: 75%;
 }
 
 .increment{
-    position: absolute;
-    margin-left: 100px;
+    background: var(--ffffff, #008200);
+    border-style: solid;
+    border-color: var(--gray-300, #d0d5dd);
+    border-width: 0px 1px 0px 0px;
+    padding: 10px 16px 10px 16px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 51%;
+    position: relative;
 }
 
+.text3 {
+    color: var(--white, #ffffff);
+    text-align: left;
+    font-family: var(--textsm-medium-font-family, "Inter-Medium", sans-serif);
+    font-size: var(--textsm-medium-font-size, 300%);
+    line-height: var(--textsm-medium-line-height, 80%);
+    font-weight: var(--textsm-medium-font-weight, 500);
+    position: relative;
+    }
+
 .decrement{
-    position: absolute;
-    margin-left: 150px;
+    background: var(--white, #ffffff);
+    border-style: solid;
+    border-color: var(--gray-300, #d0d5dd);
+    border-width: 0px 1px 0px 0px;
+    padding: 10px 16px 10px 16px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 51%;
+    color: var(--gray-700, #344054);
+    position: relative
 }
+
+.text2 {
+    color: var(--gray-700, #344054);
+    text-align: left;
+    font-family: var(--textsm-medium-font-family, "Inter-Medium", sans-serif);
+    font-size: var(--textsm-medium-font-size, 300%);
+    line-height: var(--textsm-medium-line-height, 80%);
+    font-weight: var(--textsm-medium-font-weight, 500);
+    position: relative;
+    }
 
 footer{
     font-size: 10pt;
     text-align: center;
     clear: both;
+    background-color: #008200;
 }
-
-
-
 
 
 

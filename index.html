@@ -17,7 +17,9 @@
             <hr/>
         </header>
         <div class="Container">
-            <ul id="peopleList"></ul>
+            <ul id="peopleList">
+                <li></li>
+            </ul>
         </div>
         <footer>
             <hr/>
@@ -46,7 +48,22 @@
                 // Display people with counters and buttons
                 sortedPeople.forEach((person, index) => {
                     const listItem = document.createElement('li');
-                    listItem.innerHTML = `${person} <button class="increment" onclick="incrementCounter(${people.indexOf(person)})">+</button> <button class="decrement" onclick="decrementCounter(${people.indexOf(person)})">-</button> <span class="counter" id="counter${people.indexOf(person)}">${counters[people.indexOf(person)]}</span>`;
+                    listItem.innerHTML = `
+                            <div class="name">
+                                <div class="text">${person}
+                                </div>
+                            </div>
+                            <div class="increase-decrease">
+                                <button class="decrement" onclick="decrementCounter(${people.indexOf(person)})">
+                                    <div class="text2">-</div>
+                                </button>
+                                <button class="increment" onclick="incrementCounter(${people.indexOf(person)})">
+                                    <div class="text3">+</div>
+                                </button>
+                            </div>
+                            <div class="counter" id="counter${people.indexOf(person)}">${counters[people.indexOf(person)]}
+                            </div>
+                    `;
                     peopleList.appendChild(listItem);
                 });
             };
@@ -55,6 +72,18 @@
             window.incrementCounter = function(index) {
                 counters[index]++;
                 updateList();
+                var n = Math.random();
+                    n = n * 100;
+                    n = Math.floor(n)+1;
+                    if (n<30){
+                        alert("Hochfahren!")
+                    }
+                    if (n>=30 && n<=70){
+                        alert("Wohlsein!")
+                    }
+                    if (n>70){
+                        alert("Weiter So!")
+                    }
             };
 
             // Function to decrement counter
@@ -62,6 +91,7 @@
                 if (counters[index] > 0) {
                     counters[index]--;
                     updateList();
+                    alert("Buuuuh");
                 }
             };
 
