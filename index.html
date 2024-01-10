@@ -78,11 +78,16 @@
 
             // Function to increment counter
             window.incrementCounter = function(index) {
-                counters[index]++;
-                updateList();
-                const messages = ["Hochfahren!", "Wohlsein!", "Weiter So!", "Tornado! Tornado!", "Schüttbier!", "Gutes Tempo!"]
-                var n = Math.floor(Math.random() * (messages.length));
-                    alert(messages[n])
+                // Ask for confirmation before incrementing
+                var confirmIncrement = confirm("Soll ein Strich gemacht werden?");
+                
+                if (confirmIncrement) {
+                    counters[index]++;
+                    updateList();
+                    const messages = ["Hochfahren!", "Wohlsein!", "Weiter So!", "Tornado! Tornado!", "Schüttbier!", "Gutes Tempo!"]
+                    var n = Math.floor(Math.random() * (messages.length));
+                        alert(messages[n])
+                }
             };
 
             // Function to decrement counter
