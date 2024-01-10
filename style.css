@@ -92,9 +92,9 @@ img{
     justify-content: flex-start;
     width: 350px;
     position: relative;
-    width: 80%;
-    margin-left: 10%;
-    margin-top: 30px;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 50px;
     }
 
     .input-with-label {
@@ -130,6 +130,7 @@ img{
     display: flex;
     flex-direction: row;
     border-style: hidden;
+    font-size: 40pt;
     gap: 8px;
     align-items: center;
     justify-content: flex-start;
@@ -149,8 +150,8 @@ img{
 
     .search {
     flex-shrink: 0;
-    width: 20px;
-    height: 20px;
+    width: 50px;
+    height: 50px;
     position: relative;
     overflow: visible;
     }
