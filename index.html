@@ -80,18 +80,9 @@
             window.incrementCounter = function(index) {
                 counters[index]++;
                 updateList();
-                var n = Math.random();
-                    n = n * 100;
-                    n = Math.floor(n)+1;
-                    if (n<30){
-                        alert("Hochfahren!")
-                    }
-                    if (n>=30 && n<=70){
-                        alert("Wohlsein!")
-                    }
-                    if (n>70){
-                        alert("Weiter So!")
-                    }
+                const messages = ["Hochfahren!", "Wohlsein!", "Weiter So!", "Tornado! Tornado!", "Schüttbier!", "Gutes Tempo!"]
+                var n = Math.floor(Math.random() * (messages.length));
+                    alert(messages[n])
             };
 
             // Function to decrement counter
