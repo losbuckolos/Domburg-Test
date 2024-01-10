@@ -22,7 +22,7 @@ body {
     color: #ffffff;
     align-items: center;
     text-align: left;
-    margin-left: 20%;
+    margin-left: 25%;
     font-family: var(--textsm-medium-font-family, 'Inter-Medium', sans-serif);
     font-size: var(--textsm-medium-font-size, 30px);
     line-height: var(--textsm-medium-line-height, 20px);
@@ -50,8 +50,8 @@ body {
     }
 
 .logo {
-    color: var(--gray-900, #101828);width: 70px;
-    height: 90px;
+    color: var(--gray-900, #101828);width: 90px;
+    height: 110px;
     align-items: center;
     position: absolute;
     display: flex;
@@ -74,11 +74,88 @@ body {
     }
     
 img{
-        width: 240px;
+        width: 320px;
         align-items: center;
-        margin-left: -110%;
-        margin-top: -65%;
+        margin-left: -120%;
+        margin-top: -70%;
     }
+
+.suche, .suche * {
+    box-sizing: border-box;
+    width: 100%;
+    }
+.suche {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 350px;
+    position: relative;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 30px;
+    }
+
+    .input-with-label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+    }
+
+    .input {
+    background: var(--white, #ffffff);
+    border-radius: 8px;
+    border-style: solid;
+    border-color: var(--gray-300, #d0d5dd);
+    border-width: 1px;
+    padding: 10px 14px 10px 14px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+    box-shadow: var(--shadow-xs-box-shadow,  0px 1px 2px 0px rgba(16, 24, 40, 0.05));
+    }
+
+    .content {
+    display: flex;
+    flex-direction: row;
+    border-style: hidden;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+    position: relative;
+    }
+
+    .suche2 {
+    color: var(--gray-500, #667085);
+    text-align: left;
+    font-family: var(--textmd-regular-font-family, 'Inter-Regular', sans-serif);
+    font-size: var(--textmd-regular-font-size, 16px);
+    line-height: var(--textmd-regular-line-height, 24px);
+    font-weight: var(--textmd-regular-font-weight, 400);
+    position: relative;
+    }
+
+    .search {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    overflow: visible;
+    }
+    
+    
 
 ul {
     list-style-type: none;

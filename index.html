@@ -1,106 +1,53 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <title>Bierliste Ameland</title>
-    <link rel="stylesheet" href="./style.css"/>
-</head>
-<body>
-    <header>
-        <div class="header1">
-            <div class="Title">
-                <h1>Bierliste 2024</h1>
-            </div>
-            <div class="nav-menu-button">
-                <svg class="menu" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 12H21M3 6H21M3 18H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-            <div class="logo">
-                <div class="platzhalter">
-                    <img src="./images/Los Buckolos.jpeg" alt="Flagge mit gemalter Bierflasche">
+    <head>
+        <meta charset="UTF-8">
+        <title>Bierliste Ameland</title>
+        <link rel="stylesheet" href="./style.css"/>
+    </head>
+
+    <body>
+        <header>
+            <div class="header1">
+                <div class="Title">
+                    <h1>Bierliste 2024</h1>
+                </div>
+                <div class="nav-menu-button">
+                    <svg class="menu" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 12H21M3 6H21M3 18H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="logo">
+                    <div class="platzhalter" >
+                        <img src="./images/Los Buckolos.jpeg" alt="Flagge mit gemalter Bierflasche">
+                    </div>
                 </div>
             </div>
+
+        </header>
+            <div class="suche" >
+                <div class="input-with-label" >
+                    <div class="input" >
+                        <input type="text" class="content" id="nameFilter" oninput="filterNames()" placeholder="Suche Buckolos">
+                        <svg class="search" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.5 17.5L13.875 13.875M15.8333 9.16667C15.8333 12.8486 12.8486 15.8333 9.16667 15.8333C5.48477 15.8333 2.5 12.8486 2.5 9.16667C2.5 5.48477 5.48477 2.5 9.16667 2.5C12.8486 2.5 15.8333 5.48477 15.8333 9.16667Z" stroke="#667085" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        <div class="Container">
+            <ul id="peopleList">
+                <li></li>
+            </ul>
         </div>
-    </header>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Sample people data
-            const people = ['Tim', 'Sophie', 'Kim', 'Nina', 'Volker', 'Karin', 'Kurt', 'Basti', 'Moritz', 'Jona', 'Arne'];
+        <footer>
+            <p>Copyright Los Buckolos</p>
+        </footer>
 
-            // Get the list element
-            const peopleList = document.getElementById('peopleList');
-
-            // Load counters from localStorage or initialize to zero
-            const counters = JSON.parse(localStorage.getItem('counters')) || Array(people.length).fill(0);
-
-            // Function to update list and counters
-            const updateList = function() {
-                // Sort people based on counters
-                const sortedPeople = people.slice().sort((a, b) => counters[people.indexOf(b)] - counters[people.indexOf(a)]);
-
-                // Clear the list
-                peopleList.innerHTML = '';
-
-                // Display people with counters and buttons
-                sortedPeople.forEach((person, index) => {
-                    const listItem = document.createElement('li');
-                    listItem.innerHTML = `
-                        <div class="name">
-                            <div class="text">${person}</div>
-                        </div>
-                        <div class="increase-decrease">
-                            <button class="decrement" onclick="decrementCounter(${people.indexOf(person)})">
-                                <div class="text2">-</div>
-                            </button>
-                            <button class="increment" onclick="incrementCounter(${people.indexOf(person)})">
-                                <div class="text3">+</div>
-                            </button>
-                        </div>
-                        <div class="counter" id="counter${people.indexOf(person)}">${counters[people.indexOf(person)]}</div>
-                    `;
-                    peopleList.appendChild(listItem);
-                });
-
-                // Save counters to localStorage
-                localStorage.setItem('counters', JSON.stringify(counters));
-            };
-
-            // Function to increment counter
-            window.incrementCounter = function(index) {
-                var confirmIncrement = confirm("Soll ein Strich gemacht werden?");
-                if (confirmIncrement) {
-                    counters[index]++;
-                    updateList();
-                    const messages = ["Hochfahren!", "Wohlsein!", "Weiter So!", "Tornado! Tornado!", "Schüttbier!", "Gutes Tempo!"]
-                    var n = Math.floor(Math.random() * (messages.length));
-                    alert(messages[n]);
-                }
-            };
-
-            // Function to decrement counter
-            window.decrementCounter = function(index) {
-                if (counters[index] > 0) {
-                    counters[index]--;
-                    updateList();
-                    alert("Buuuuh");
-                }
-            };
-
-            // Initialize the list
-            updateList();
-        });
-    </script>
-
-    <div class="Container">
-        <ul id="peopleList">
-            <!-- List items will be dynamically added here -->
-        </ul>
-    </div>
-
-    <footer>
-        <p>Copyright Los Buckolos</p>
-    </footer>
-</body>
+        <script src="index.js" charset="UTF-8"></script>
+        
+    </body>
 </html>
+
+
