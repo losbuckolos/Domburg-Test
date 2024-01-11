@@ -71,13 +71,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Function to filter names
 function filterNames() {
-        const filterValue = document.getElementById('nameFilter').value.toLowerCase();
-        const nameList = document.getElementById('peopleList');
-        const names = nameList.getElementsByClassName('nameItem');
+    const filterValue = document.getElementById('nameFilter').value.toLowerCase(); // Input in the search
+    const nameList = document.getElementById('peopleList'); // ul
 
-            for (const name of names) {
-                const textValue = name.textContent || name.innerText;
-                const isVisible = textValue.toLowerCase().indexOf(filterValue) > -1;
-                name.style.display = isVisible ? '' : 'none';
-            }
-            }
+    Array.from(nameList.children).forEach(name => {
+        const textValue = name.textContent || name.innerText;
+        const isVisible = textValue.toLowerCase().indexOf(filterValue) > -1;
+        name.style.display = isVisible ? '' : 'none';
+    });
+}
+
