@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     </div>
                     <div class="increase-decrease">
-                        <button class="decrement" onclick="decrementCounter(${people.indexOf(person)})">
+                        <button class="decrement ${people.indexOf(person)}" onclick="decrementCounter(${people.indexOf(person)})">
                             <div class="text2">-</div>
                         </button>
-                        <button class="increment" onclick="incrementCounter(${people.indexOf(person)})">
+                        <button class="increment ${people.indexOf(person)}" onclick="incrementCounter(${people.indexOf(person)})">
                             <div class="text3">+</div>
                         </button>
                     </div>
@@ -44,16 +44,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to increment counter
     window.incrementCounter = function(index) {
+        
+        // Generate a motivation message
+        const messages = ["Hochfahren!", "Wohlsein!", "Weiter So!", "Tornado! Tornado!", "Schüttbier!", "Gutes Tempo!"]
+        var n = Math.floor(Math.random() * (messages.length));
+        
         // Ask for confirmation before incrementing
-        var confirmIncrement = confirm("Soll ein Strich gemacht werden?");
+        var confirmIncrement = confirm(messages[n] + " - Soll ein Strich gemacht werden?");
         
         if (confirmIncrement) {
             counters[index]++;
             updateList();
-            const messages = ["Hochfahren!", "Wohlsein!", "Weiter So!", "Tornado! Tornado!", "Schüttbier!", "Gutes Tempo!"]
-            var n = Math.floor(Math.random() * (messages.length));
-                alert(messages[n])
         }
+
+        $("button.increment."+index).animate({opacity: 0.3});
+        setTimeout(function(){
+            $("button.increment."+index).animate({opacity: 1.0});
+        }, 200);
+
+        $("#counter"+index).addClass("counterAnimation");
+        setTimeout(function(){
+            $("#counter"+index).removeClass("counterAnimation");
+        }, 1000);
     };
 
     // Function to decrement counter
@@ -63,6 +75,16 @@ document.addEventListener('DOMContentLoaded', function() {
             updateList();
             alert("Buuuuh");
         }
+
+        $("button.decrement."+index).animate({opacity: 0.3});
+        setTimeout(function(){
+            $("button.decrement."+index).animate({opacity: 1.0});
+        }, 200);
+
+        $("#counter"+index).addClass("counterAnimation");
+        setTimeout(function(){
+            $("#counter"+index).removeClass("counterAnimation");
+        }, 1000);
     };
 
     // Initialize the list
@@ -72,12 +94,12 @@ document.addEventListener('DOMContentLoaded', function() {
 // Function to filter names
 function filterNames() {
     const filterValue = document.getElementById('nameFilter').value.toLowerCase(); // Input in the search
-    const nameList = document.getElementById('peopleList'); // ul
+    const nameList = document.getElementById('peopleList'); // unstructured list object in HTML
 
-    Array.from(nameList.children).forEach(name => {
-        const textValue = name.textContent || name.innerText;
-        const isVisible = textValue.toLowerCase().indexOf(filterValue) > -1;
-        name.style.display = isVisible ? '' : 'none';
+    Array.from(nameList.children).forEach(name => {     // Create an array for every child (li) of the unstructured list and execute the function for each
+        const textValue = name.textContent || name.innerText;       // Capture the text inside each list object (li)
+        const isVisible = textValue.toLowerCase().indexOf(filterValue) > -1;        // Compare search input with text of list object (li)
+        name.style.display = isVisible ? '' : 'none';        // set list Objects (li) to either visible or not visible depending on the result for isVisible
     });
 }
 
