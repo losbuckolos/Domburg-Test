@@ -130,7 +130,7 @@ img{
     display: flex;
     flex-direction: row;
     border-style: hidden;
-    font-size: 40pt;
+    font-size: 30pt;
     gap: 8px;
     align-items: center;
     justify-content: flex-start;
@@ -217,6 +217,11 @@ li {
     font-weight: var(--textsm-medium-font-weight, 300);
 }
 
+.counterAnimation{
+    font-weight: bolder;
+    font-size:115% ;
+}
+
 .increase-decrease {
     border-radius: 8px;
     border-style: solid;
@@ -298,12 +303,3 @@ footer{
     text-align: center;
     clear: both;
 }
-
-.counterAnimation{
-    background-color: #67b578;
-}
-
-
-
-
-

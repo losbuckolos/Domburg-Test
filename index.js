@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const listItem = document.createElement('li');
             listItem.innerHTML = `
                     <div class="name">
-                        <div class="text nameItem">${person}
+                        <div class="text nameItem ${people.indexOf(person)}">${person}
                         </div>
                     </div>
                     <div class="increase-decrease">
@@ -57,15 +57,15 @@ document.addEventListener('DOMContentLoaded', function() {
             updateList();
         }
 
-        $("button.increment."+index).animate({opacity: 0.3});
+        $("div.nameItem."+index).addClass("counterAnimation");
         setTimeout(function(){
-            $("button.increment."+index).animate({opacity: 1.0});
-        }, 200);
-
+            $("div.nameItem."+index).removeClass("counterAnimation");
+        }, 400);
+        
         $("#counter"+index).addClass("counterAnimation");
         setTimeout(function(){
             $("#counter"+index).removeClass("counterAnimation");
-        }, 1000);
+        }, 400);
     };
 
     // Function to decrement counter
@@ -76,15 +76,15 @@ document.addEventListener('DOMContentLoaded', function() {
             alert("Buuuuh");
         }
 
-        $("button.decrement."+index).animate({opacity: 0.3});
+        $("div.nameItem."+index).addClass("counterAnimation");
         setTimeout(function(){
-            $("button.decrement."+index).animate({opacity: 1.0});
-        }, 200);
-
+            $("div.nameItem."+index).removeClass("counterAnimation");
+        }, 400);
+        
         $("#counter"+index).addClass("counterAnimation");
         setTimeout(function(){
             $("#counter"+index).removeClass("counterAnimation");
-        }, 1000);
+        }, 400);
     };
 
     // Initialize the list
